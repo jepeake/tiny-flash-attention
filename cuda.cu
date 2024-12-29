@@ -2,7 +2,7 @@
 #include <cuda.h>
 #include <cuda_runtime.h>
 
-__global__ void tiny_attn(const float* Q, const float* K, const float* V, const int N, const int d, const int Tc, const int Tr, const int Bc, const int Br, const float scale, float* l, float *m, float* O) {
+__global__ void flash_attn(const float* Q, const float* K, const float* V, const int N, const int d, const int Tc, const int Tr, const int Bc, const int Br, const float scale, float* l, float *m, float* O) {
     extern __shared__ float sram[]; float* Qi = sram, *Kj = &sram[Bc*d], *Vj = &sram[2*Bc*d], *S = &sram[3*Bc*d];
     int tx = threadIdx.x, qkv_idx = (blockIdx.x*gridDim.y + blockIdx.y)*N*d, lm_idx = qkv_idx/d;
     for (int j = 0; j < Tc; j++) {
@@ -32,6 +32,6 @@ torch::Tensor forward(torch::Tensor Q, torch::Tensor K, torch::Tensor V) {
     auto O = torch::zeros_like(Q); auto l = torch::zeros({B, nh, N}).to(Q.device()), m = torch::full({B, nh, N}, -INFINITY).to(Q.device());
     const int sram_size = (3 * Bc * d + Bc * Br) * sizeof(float);
     dim3 grid(B, nh), block(Bc);
-    tiny_attn<<<grid, block, sram_size>>>(Q.data_ptr<float>(), K.data_ptr<float>(), V.data_ptr<float>(), N, d, Tc, Tr, Bc, Br, scale, l.data_ptr<float>(), m.data_ptr<float>(), O.data_ptr<float>());
+    flash_attn<<<grid, block, sram_size>>>(Q.data_ptr<float>(), K.data_ptr<float>(), V.data_ptr<float>(), N, d, Tc, Tr, Bc, Br, scale, l.data_ptr<float>(), m.data_ptr<float>(), O.data_ptr<float>());
     return O;
 }

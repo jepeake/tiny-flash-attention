@@ -8,7 +8,7 @@ q = torch.randn(batch_size, n_head, seq_len, head_embd).cuda()
 k = torch.randn(batch_size, n_head, seq_len, head_embd).cuda()
 v = torch.randn(batch_size, n_head, seq_len, head_embd).cuda()
 
-print('--- Profiling Manual Flash Attention ---')
+print('--- Profiling Manual Attention ---')
 def manual_attn(q, k, v): return (F.softmax((q @ k.transpose(-2, -1)) * (1.0 / math.sqrt(k.size(-1))), dim=-1) @ v)
 
 with torch.autograd.profiler.profile(use_cuda=True) as prof:

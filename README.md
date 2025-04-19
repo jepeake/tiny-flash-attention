@@ -1,4 +1,4 @@
-# _tiny-flash-attention_
+# Tiny Flash Attention
 
 **[Flash Attention](https://github.com/Dao-AILab/flash-attention)** is a fast & memory-efficient attention algorithm that fuses operations into a single kernel. 
 
@@ -6,13 +6,13 @@
 
 ---
 
-### _Algorithm_
+### Algorithm
 
 ![image](https://github.com/user-attachments/assets/43ef0742-fbdd-49d5-86ea-c3ef2172772d)
 
 ---
 
-### _Running_
+### Running
 
 [Colab Demo](https://colab.research.google.com/drive/1qgFiS23-pCNx7MiHt5-Xycm-GdlBJ52R#scrollTo=zn9U4xkHiWzI)
 

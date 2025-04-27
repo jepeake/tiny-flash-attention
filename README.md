@@ -1,14 +1,6 @@
 # Tiny Flash Attention
 
-**[Flash Attention](https://github.com/Dao-AILab/flash-attention)** is a fast & memory-efficient attention algorithm that fuses operations into a single kernel. 
-
-**Tiny Flash Attention** is a minimal implementation which expresses the forward-pass in ~20 lines of CUDA.
-
----
-
-### Algorithm
-
-![image](https://github.com/user-attachments/assets/43ef0742-fbdd-49d5-86ea-c3ef2172772d)
+A minimal implementation of Flash Attention (a fast & memory-efficient attention algorithm that fuses operations into a single kernel).
 
 ---
 

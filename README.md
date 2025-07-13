@@ -1,15 +1,16 @@
-# Tiny Flash Attention
+# _tiny flash attention_
 
-A minimal implementation of Flash Attention (a fast & memory-efficient attention algorithm that fuses operations into a single kernel).
-
----
-
-### Running
-
-[Colab Demo](https://colab.research.google.com/drive/1qgFiS23-pCNx7MiHt5-Xycm-GdlBJ52R#scrollTo=zn9U4xkHiWzI)
+_a minimal implementation of **Flash Attention** [1]_
 
 ---
 
+### _Running_
+
+_[Colab Demo](https://colab.research.google.com/drive/1qgFiS23-pCNx7MiHt5-Xycm-GdlBJ52R#scrollTo=zn9U4xkHiWzI)_
+
+---
+
+_[1]_
 ```
 @misc{dao2022flashattentionfastmemoryefficientexact,
       title={FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness}, 

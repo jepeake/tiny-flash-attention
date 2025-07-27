@@ -1,6 +1,6 @@
 # _tiny flash attention_
 
-_a minimal implementation of **Flash Attention** [1]_
+_a minimal implementation of **Flash Attention**_
 
 ---
 
@@ -10,7 +10,6 @@ _[Colab Demo](https://colab.research.google.com/drive/1qgFiS23-pCNx7MiHt5-Xycm-G
 
 ---
 
-_[1]_
 ```
 @misc{dao2022flashattentionfastmemoryefficientexact,
       title={FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness}, 
